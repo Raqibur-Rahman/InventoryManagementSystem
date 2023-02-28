@@ -1,12 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CRUD_WEB_API_DEMO.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CRUD_WEB_API_DEMO.Controllers
 {
-    public class RegistrationController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
     {
-        public IActionResult Index()
+        private readonly RegistrationAPIDbContext dbContext;
+
+        public ContactsController(RegistrationAPIDbContext dbContext)
         {
-            return View();
+
+            this.dbContext = dbContext;
+        }
+
+
+        [HttpGet]
+        public IActionResult GetContacts()
+        {
+
+            return Ok(dbContext.Contacts.ToList());
         }
     }
 }

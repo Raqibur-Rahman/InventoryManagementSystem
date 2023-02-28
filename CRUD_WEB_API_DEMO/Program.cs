@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<RegistrationModelAPIDbContext>(options => options.UseInMemoryDatabase("ContactsDb"));
+builder.Services.AddDbContext<RegistrationAPIDbContext>(options => options.UseInMemoryDatabase("ContactsDb"));
 
 var app = builder.Build();
 
